@@ -136,7 +136,6 @@ class interPretr:
                     count+=1
                     translators.append(self.vertices[i])
             
-            count= 0
             if translatorfound is False:
                 print("Direct Translator: No" )
                 print('\n')

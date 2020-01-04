@@ -74,3 +74,13 @@ def createvertices(self):
     for lang in self.uniqueLang:
         self.vertices.append(lang)
     print(self.vertices)
+   
+'''
+def findMaxLanguageCand(self):
+    candcount = len(self.uniqueCandidates)
+    candlanguage=[]
+    for i in range(candcount):
+        for j in range(self.matrixlegth):
+            if (self.edges[i][j]== 1 ):
+                langcount+ = 1
+'''                
