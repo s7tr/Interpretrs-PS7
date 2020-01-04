@@ -1,0 +1,15 @@
+Ensure that all data structure insert and delete operations throw appropriate messages when
+their capacity is empty or full. 
+
+Ensure that the input, prompt and output file guidelines are adhered to. Deviations from the
+mentioned formats will not be entertained.
+
+Sample promptsPS7.txt
+showMinList
+searchLanguage: Hindi
+searchLanguage: Tamil
+DirectTranslate: English : Malayalam
+DirectTranslate: Hindi : Gujarati
+TransRelation: English : Malayalam
+TransRelation: English : Gujarati
+
