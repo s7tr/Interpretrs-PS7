@@ -158,7 +158,8 @@ class interPretr:
         print("Language B: ", langB)
         
         transrelation=False
-        if(self.findDirectTranslator(langA, langB)==0):
+        if(self.findDirectTranslator(langA, langB)==0)
+         '''@@@@@@@@@@@@@ Yet to be completed @@@@@@@@@@@@@'''
             langC="Yet-to-be-coded"
             cand1="tbd-cand1"
             cand2="tbd-cand2"

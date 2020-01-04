@@ -83,4 +83,7 @@ def findMaxLanguageCand(self):
         for j in range(self.matrixlegth):
             if (self.edges[i][j]== 1 ):
                 langcount+ = 1
-'''                
+def abc():
+    for i in range(len(self.uniqueCandidates)):
+        for j in range(len(self.matrixlength)self.edges[i][j]):
+'''
