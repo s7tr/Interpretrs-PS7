@@ -35,6 +35,8 @@ ip.displayCandidates('English')
 ip.displayCandidates('Tamil')
 ip.displayCandidates('Bingo')
 
+ip.displayHireList()
+
 
 #ip.createvertices()
 #ip.createedges()
