@@ -75,6 +75,56 @@ def createvertices(self):
         self.vertices.append(lang)
     print(self.vertices)
    
+
+def removeCovLang(self,ck,tbcl):
+    candKey = ck
+    tobeCovLang = tbcl
+    
+    for l in range(len(self.uniqueCand), self.matrixlength):
+        if (self.edges[candKey][l] == 1):
+            
+            print(candKey, l)
+            tobeCovLang = tobeCovLang[:l] + tobeCovLang[l+1:]
+    return(tobeCovLang)
+    
+def getInterpreterRank(self):
+    
+    interpreterRank=[]
+    langknown=0
+    candlangtuple= ()
+    for candkey in range(0,len(self.uniqueCand)):
+        for langkey in range(len(self.uniqueCand), self.matrixlength):
+            if(self.edges[candkey][langkey]==1):
+                langknown += 1
+            candlangtuple = (candkey, langknown)
+        print(candlangtuple)
+        langknown=0
+        interpreterRank.append(candlangtuple)
+    
+    
+    return(interpreterRank)
+    
+    
+
+def maxInterpreterRank(self, ir):
+
+    temp = 0
+    interpreterRank=ir
+    temprank = ()
+    if len(interpreterRank) > 1:
+        for rank in interpreterRank:
+            if rank[1] > temp:
+                temprank = rank
+                i=-1
+        for i in range(len(interpreterRank)):
+            if i == temprank[0]:
+                interpreterRank = interpreterRank[0:i] + interpreterRank[i+1:]
+    else:
+        temprank = interpreterRank[0]
+    
+    return(temprank, interpreterRank)
+
+
 '''
 def findMaxLanguageCand(self):
     candcount = len(self.uniqueCandidates)

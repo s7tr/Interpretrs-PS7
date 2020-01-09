@@ -19,9 +19,16 @@ class interPretr:
     from _ps7func import uniqueCandidates
     from _ps7func import uniqueLanguages
     from _ps7func import createvertices
+    
+    from _ps7func import removeCovLang
+    from _ps7func import getInterpreterRank
+    from _ps7func import maxInterpreterRank
+    
+    
     from _ps7func_testfun import testparseline
     from _ps7func_testfun import testdisplayedges
 
+    
     def __init__(self):
         self.vertices=[] #list containing interpreter and languages
         self.edges=[[],[]] #adjacency matrix of edges linking interpreters to languages
@@ -170,9 +177,35 @@ class interPretr:
         print("Language A: ", langA)
         print("Language B: ", langB)
 
+       
+        visited = [False for i in range(len(self.vertices))]
+        print(visited)
+
+        stack = []
+        stack.append(langA)
+        print(stack)
+    
+        while(len(stack)):
+            s = stack[-1]
+            print(s)
+            stack.pop()
+    
+            if(not visited[s]):
+                print(s,end=' ')
+                visited[s] = True
+    
+            for node in self.edges[s]:
+                if(node == langB):
+                    print(langB, end=' ')
+                    return True
+                if(not visited[node]):
+                    stack.append(node)
+    
+        return False
+        '''
         transrelation=False
         if(self.findDirectTranslator(langA, langB)==0):
-            '''@@@@@@@@@@@@@ Yet to be completed @@@@@@@@@@@@@''' 
+            @@@@@@@@@@@@@ Yet to be completed @@@@@@@@@@@@@
             langC="Yet-to-be-coded"
             cand1="tbd-cand1"
             cand2="tbd-cand2"
@@ -183,7 +216,8 @@ class interPretr:
                 print("There are no direct or transitive relation translators available for languages %s and %s.", (langA, langB) )
         else:
             print("As there are direct translators available there is no need for transitive relation translators")
-
+        '''
+        
     def displayHireList(self):
         
         tobeCovLang= self.vertices
@@ -203,50 +237,3 @@ class interPretr:
         
         print(interpreterRank)
         
-    def removeCovLang(self,ck,tbcl):
-        candKey = ck
-        tobeCovLang = tbcl
-        
-        for l in range(len(self.uniqueCand), self.matrixlength):
-            if (self.edges[candKey][l] == 1):
-                
-                print(candKey, l)
-                tobeCovLang = tobeCovLang[:l] + tobeCovLang[l+1:]
-        return(tobeCovLang)
-        
-    def getInterpreterRank(self):
-        
-        interpreterRank=[]
-        langknown=0
-        candlangtuple= ()
-        for candkey in range(0,len(self.uniqueCand)):
-            for langkey in range(len(self.uniqueCand), self.matrixlength):
-                if(self.edges[candkey][langkey]==1):
-                    langknown += 1
-                candlangtuple = (candkey, langknown)
-            print(candlangtuple)
-            langknown=0
-            interpreterRank.append(candlangtuple)
-        
-        
-        return(interpreterRank)
-        
-        
-
-    def maxInterpreterRank(self, ir):
-
-        temp = 0
-        interpreterRank=ir
-        temprank = ()
-        if len(interpreterRank) > 1:
-            for rank in interpreterRank:
-                if rank[1] > temp:
-                    temprank = rank
-                    i=-1
-            for i in range(len(interpreterRank)):
-                if i == temprank[0]:
-                    interpreterRank = interpreterRank[0:i] + interpreterRank[i+1:]
-        else:
-            temprank = interpreterRank[0]
-        
-        return(temprank, interpreterRank)

@@ -1,0 +1,2 @@
+TransRelation: English : Malayalam
+searchLanguage: Hindi
